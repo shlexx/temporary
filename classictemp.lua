@@ -1,0 +1,2 @@
+local codes = {"ihatetickets","foundredeem","03252022","a code here","buybloxxersclub","cheeto","classic","classicblox","classicbloxtiktok","classiccheer","code","code here","followclassicblox","fruferbuiscool","ilovecb","ilovetickets","joincbcommunity","mysterious","nevergonnagiveyouup","not case sensitive","potatolove","steadiyer","subscribetoclassicblox","subscribetofruferbu"}
+for i,v in ipairs(codes) do  game.Players.LocalPlayer.PlayerGui.ScreenGui.Frame.Content.Settings.Redeem.CodeRedeem:FireServer(codes[i])  end
