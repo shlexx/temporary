@@ -1,31 +1,31 @@
 local spcoil = Instance.new("Tool", game.Players.LocalPlayer.Backpack)
 		local hum = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
-		local speed = 32
+		getgenv().speed = hum.WalkSpeed
 		spcoil.Name = "SpeedCoil"
 		spcoil.RequiresHandle = false
 		spcoil.CanBeDropped = false
 		spcoil.TextureId = "rbxassetid://99170415"
 
 		spcoil.Equipped:Connect(function()
-			hum.WalkSpeed = speed
+			hum.WalkSpeed = getgenv().speed*2
 		end)
 
 		spcoil.Unequipped:Connect(function()
-			hum.WalkSpeed = 16
+			hum.WalkSpeed = getgenv().speed
 		end)
 local gravcoil = Instance.new("Tool", game.Players.LocalPlayer.Backpack)
-		local grav = 50
+		getgenv().gravity = workspace.Gravity
 		gravcoil.Name = "GravityCoil"
 		gravcoil.RequiresHandle = false
 		gravcoil.CanBeDropped = false
 		gravcoil.TextureId = "rbxassetid://16619617"
 
 		gravcoil.Equipped:Connect(function()
-			workspace.Gravity = grav
+			workspace.Gravity = getgenv().gravity/4
 		end)
 
 		gravcoil.Unequipped:Connect(function()
-			workspace.Gravity = 196.2
+			workspace.Gravity = getgenv().gravity
 		end)
 local cam = workspace.CurrentCamera
 		local equipped = false
