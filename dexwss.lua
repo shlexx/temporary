@@ -4213,10 +4213,13 @@ local function main()
 
 	ScriptViewer.ViewScript = function(scr)
 		if scr.ClassName == "Script" then local success, source = pcall(_G.decompile or function() end, scr)
-		if not success or not source then source, PreviousScr = "-- DEX - Source failed to decompile", nil else PreviousScr = scr end else
+		if not success or not source then source, PreviousScr = "-- DEX - Source failed to decompile", nil else PreviousScr = scr end
+		codeFrame:SetText(source:gsub("\0", "\\0")) -- Fix stupid breaking script viewer 
+		else
 		local success, source = pcall(env.decompile or function() end, scr)
-		if not success or not source then source, PreviousScr = "-- DEX - Source failed to decompile", nil else PreviousScr = scr end end
+		if not success or not source then source, PreviousScr = "-- DEX - Source failed to decompile", nil else PreviousScr = scr end
 		codeFrame:SetText(source:gsub("\0", "\\0")) -- Fix stupid breaking script viewer
+		end
 		window:Show()
 	end
 
