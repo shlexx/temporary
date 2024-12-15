@@ -33553,9 +33553,14 @@ local function main()
 	local PreviousScr = nil
 
 	ScriptViewer.ViewScript = function(scr)
+		if scr.ClassName == "Script" then local success, source = pcall(otherdecompile or function() end, scr)
+		if not success or not source then source, PreviousScr = "-- DEX - Source failed to decompile", nil else PreviousScr = scr end
+		codeFrame:SetText(source:gsub("\0", "\\0")) -- Fix stupid breaking script viewer 
+		else
 		local success, source = pcall(medaldecompile, krampusdecompile, simpledecompile or function() end, scr)
 		if not success or not source then source, PreviousScr = "-- DEX - Source failed to decompile", nil else PreviousScr = scr end
 		codeFrame:SetText(source:gsub("\0", "\\0")) -- Fix stupid breaking script viewer
+		end
 		window:Show()
 	end
 
