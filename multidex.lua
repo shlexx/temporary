@@ -33557,7 +33557,7 @@ local function main()
 		if not success or not source then source, PreviousScr = "-- DEX - Source failed to decompile", nil else PreviousScr = scr end
 		codeFrame:SetText(source:gsub("\0", "\\0")) -- Fix stupid breaking script viewer 
 		else
-		local success, source = pcall(medaldecompile, krampusdecompile, simpledecompile or function() end, scr)
+		local success, source = pcall(medaldecompile or krampusdecompile or simpledecompile or function() end, scr)
 		if not success or not source then source, PreviousScr = "-- DEX - Source failed to decompile", nil else PreviousScr = scr end
 		codeFrame:SetText(source:gsub("\0", "\\0")) -- Fix stupid breaking script viewer
 		end
