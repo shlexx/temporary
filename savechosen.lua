@@ -221,11 +221,11 @@ TextButton.MouseButton1Click:Connect(function()
 		command = ";" .. command
 	end
 	game:GetService("CoreGui").Storage["The Arkenstone"].Parent = backpack
-	wait(.1)
+	wait(.2)
 	game.Players.LocalPlayer.Character.Humanoid:EquipTool(backpack["The Arkenstone"])
-	wait(.1)
+	wait(.2)
 	game:GetService("TextChatService").ChatInputBarConfiguration.TargetTextChannel:SendAsync(command)
-	wait(.1)
+	wait(.2)
 	game.Players.LocalPlayer.Character["The Arkenstone"].Parent = game:GetService("CoreGui").Storage
 end)
 TextButton2.MouseButton1Click:Connect(function()
