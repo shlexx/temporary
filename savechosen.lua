@@ -209,13 +209,13 @@ local function dragify(Frame,boool)
 	end)
 end
 dragify(Frame)
-local backpack = game.Players.LocalPlayer.Backpack
 local storage = game.CoreGui:FindFirstChild("Storage")
 if not storage then
 	storage = Instance.new("Folder",game.CoreGui)
 	storage.Name = "Storage"
 end
 TextButton.MouseButton1Click:Connect(function()
+	local backpack = game.Players.LocalPlayer.Backpack
 	local command = TextBox.Text
 	if command:sub(0,1) ~= ";" then
 		command = ";" .. command
@@ -229,10 +229,12 @@ TextButton.MouseButton1Click:Connect(function()
 	game.Players.LocalPlayer.Character["The Arkenstone"].Parent = game:GetService("CoreGui").Storage
 end)
 TextButton2.MouseButton1Click:Connect(function()
+	local backpack = game.Players.LocalPlayer.Backpack
 	backpack["The Arkenstone"].Parent = storage
 end)
 
 TextButton3.MouseButton1Click:Connect(function()
+	local backpack = game.Players.LocalPlayer.Backpack
 	backpack.Build.Parent = storage
 	backpack.Delete.Parent = storage
 	backpack.Paint.Parent = storage
@@ -241,6 +243,7 @@ TextButton3.MouseButton1Click:Connect(function()
 	backpack.Sign.Parent = storage
 end)
 TextButton4.MouseButton1Click:Connect(function()
+	local backpack = game.Players.LocalPlayer.Backpack
 	for i,v in pairs(backpack:GetChildren()) do
 		if v.Name ~= "The Arkenstone" and v.Name ~= "Build" and v.Name ~= "Delete" and v.Name ~= "Paint" and v.Name ~= "Shape" and v.Name ~= "Shovel" and v.Name ~= "Sign" then
 			v.Parent = storage
@@ -248,9 +251,11 @@ TextButton4.MouseButton1Click:Connect(function()
 	end
 end)
 TextButton5.MouseButton1Click:Connect(function()
+	local backpack = game.Players.LocalPlayer.Backpack
 	storage["The Arkenstone"].Parent = backpack
 end)
 TextButton6.MouseButton1Click:Connect(function()
+	local backpack = game.Players.LocalPlayer.Backpack
 	storage.Build.Parent = backpack
 	storage.Delete.Parent = backpack
 	storage.Paint.Parent = backpack
@@ -259,6 +264,7 @@ TextButton6.MouseButton1Click:Connect(function()
 	storage.Sign.Parent = backpack
 end)
 TextButton7.MouseButton1Click:Connect(function()
+	local backpack = game.Players.LocalPlayer.Backpack
 	for i,v in pairs(storage:GetChildren()) do
 		if v.Name ~= "The Arkenstone" and v.Name ~= "Build" and v.Name ~= "Delete" and v.Name ~= "Paint" and v.Name ~= "Shape" and v.Name ~= "Shovel" and v.Name ~= "Sign" then
 			v.Parent = backpack
